@@ -1,4 +1,5 @@
 FROM php:fpm
+
 RUN apt update \
     && apt install net-tools \
     && docker-php-ext-install mysqli \
@@ -8,3 +9,6 @@ RUN apt update \
     && mkdir -p /usr/src/php/ext \
     && mv phpredis-5.3.3 /usr/src/php/ext/redis \
     && docker-php-ext-install redis
+    
+CMD ["php-fpm"]
+EXPOSE 9000
