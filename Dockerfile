@@ -1,7 +1,7 @@
 FROM php:fpm
 
 RUN apt update \
-    && apt install net-tools \
+    && apt install net-tools iproute2 \
     && docker-php-ext-install mysqli \
     && curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/5.3.3.tar.gz \
     && tar xfz /tmp/redis.tar.gz \
