@@ -10,6 +10,10 @@ RUN apt update \
     && mkdir -p /usr/src/php/ext \
     && mv phpredis-5.3.4 /usr/src/php/ext/redis \
     && docker-php-ext-install redis
-    
+
+RUN echo "deb http://deb.debian.org/debian buster-backports main" >> /etc/apt/sources.list \
+    && apt update \
+    && apt install bird2 -y
+
 CMD ["php-fpm"]
 EXPOSE 9000
